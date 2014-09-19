@@ -55,7 +55,7 @@ TwitchApi.prototype.restCall = function (type,url,callback) {
 };
 
 TwitchApi.prototype.initializeAuth = function (){
-    if ($.urlParam('access_token')){
+    if (this.urlParam('access_token')){
         console.log("access_token found");
         this.setToken()
     } else {
@@ -91,32 +91,26 @@ TwitchApi.prototype.getAuth = function () {
 };
 
 TwitchApi.prototype.setToken = function (token){
-	console.log("Setting token:" + $.urlParam('access_token'))
+	console.log("Setting token:" + this.urlParam('access_token'))
 	if (token) {
         this.getConfig().token = token
 	}
 	else {
-        this.getConfig().token = $.urlParam('access_token')
+        this.getConfig().token = this.urlParam('access_token')
 	}
 };
 
 TwitchApi.prototype.appLoginRedirect = function (){
-	console.log("Redirecting to twitch auth screen");
-	window.location.replace(this.getConfig().baseUrl + '/oauth2/authorize?response_type=token&client_id='+this.getConfig().clientId+'&redirect_uri='+this.getConfig().redirectUrl+'&scope='+this.getConfig().scope);
+    console.log("Redirecting to twitch auth screen");
+    window.location.replace(this.getConfig().baseUrl + '/oauth2/authorize?response_type=token&client_id='+this.getConfig().clientId+'&redirect_uri='+this.getConfig().redirectUrl+'&scope='+this.getConfig().scope);
 };
 
-/*
- * External Tools
- *
- */
-
-// URL stripper, used for getting access_token
-$.urlParam = function(name){
+TwitchApi.prototype.urlParam = function(name){
     var results = new RegExp('[\?(&|#)]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null){
-       return null;
+        return null;
     }
     else{
-       return results[1] || 0;
+        return results[1] || 0;
     }
 };
