@@ -1,15 +1,22 @@
+var twitch = new TwitchApp();
+twitch.pollFollowers();
+
+
 $(document).ready(function() {
-
-    var twitch = new TwitchApi();
-
-    twitch.initializeAuth();
-    twitch.getChannelsFollows(appendFollowers,undefined,10,0,'DESC');
+    updateAppendFollowers();
 });
 
-
-function appendFollowers(followList){
-	$.each(followList.follows, function(index, value){
-		$( "#recentFollowers" ).append( "<li>"+ value.user.name +"</li>" );
-	});
-	//$( ".main" ).append( "<span>Test</span>" );
+function updateAppendFollowers(){
+    setTimeout(function() {
+        $("#recentFollowers li").remove()
+            if(twitch.getRecentFollowers().length !== 0) {
+                $.each(twitch.getRecentFollowers().slice(0,10), function( index, value ) {
+                    entry = twitch.getRecentFollowers()[index]
+                    $("#recentFollowers").append( "<li>"+ entry.user.display_name +"</li>" );
+                });
+            } else {
+                $("#recentFollowers").append( "<li>No followers found</li>" );
+            }
+        updateAppendFollowers()
+    }, 2000);
 }
