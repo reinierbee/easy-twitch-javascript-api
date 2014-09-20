@@ -1,4 +1,5 @@
 myConfig = {
     "clientId":"",
-    "channel":""
+    "channel":"",
+    "redirectUrl":""
 }

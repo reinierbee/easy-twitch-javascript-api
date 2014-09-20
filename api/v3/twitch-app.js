@@ -20,6 +20,7 @@ function TwitchApp () {
         };
         twitch.setConfig("clientId",myConfig.clientId);
         twitch.setConfig("channel",myConfig.channel);
+        twitch.setConfig("redirectUrl",myConfig.redirectUrl);
         twitch.initializeAuth();
     };
 
