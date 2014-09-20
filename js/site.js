@@ -1,8 +1,18 @@
+/*
+ * Copyright (c) 2014. Reinier Boon (ssjkrillen@hotmail.com)
+ *
+ * License
+ * ----
+ * Attribution-NonCommercial 3.0 Unported
+ * https://creativecommons.org/licenses/by-nc/3.0/
+ */
+
 var twitch = new TwitchApp();
 twitch.pollFollowers();
 
 
 $(document).ready(function() {
+    twitch.setConfig("follower",{callback:popUpFollower})
     updateAppendFollowers();
 });
 
@@ -27,7 +37,7 @@ function popUpFollower(newFollower){
     $("#mostRecentFollowerPopUp").append( "<div id='followerName'>New follower: "+ newFollower.user.display_name +"</div>");
     twitch.playMusic("mp3/My_Anaconda.wav")
     $("#mostRecentFollowerPopUp").delay()
-        .fadeIn()
+        .fadeIn(600)
         .delay(8000)
-        .fadeOut();
+        .fadeOut(600);
 }

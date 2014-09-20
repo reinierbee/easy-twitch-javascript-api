@@ -1,5 +1,10 @@
-/**
- * Created by reinier on 20-9-2014.
+/*
+ * Copyright (c) 2014. Reinier Boon (ssjkrillen@hotmail.com)
+ *
+ * License
+ * ----
+ * Attribution-NonCommercial 3.0 Unported
+ * https://creativecommons.org/licenses/by-nc/3.0/
  */
 
 function TwitchApp () {
@@ -13,7 +18,7 @@ function TwitchApp () {
         config = {
             follower : {
                 loaded:false,
-                callback:popUpFollower,
+                callback:'',
                 poll:true,
                 pollTime:2000// MAX 100
             }
@@ -25,6 +30,11 @@ function TwitchApp () {
     };
 
     this.constructor();
+
+    this.setConfig = function(key,value){
+        console.log("Setting config key: "+ key + " value: " + value)
+        config[key] = value
+    };
 
 
     /*

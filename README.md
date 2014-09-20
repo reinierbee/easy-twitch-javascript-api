@@ -39,4 +39,5 @@ Done, it works and its awesome.
 License
 ----
 
-Nothing
+Attribution-NonCommercial 3.0 Unported
+https://creativecommons.org/licenses/by-nc/3.0/
