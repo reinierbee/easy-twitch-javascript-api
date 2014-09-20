@@ -6,7 +6,7 @@ I am to lazy to write everything down but here are the basics
 Version
 ----
 
-0.1
+0.2
 
 
 Installation
@@ -26,7 +26,7 @@ git clone [git-repo-url] easy-twitch-api
 * copy the client_id of the application you created
 * Make sure you set the redirect url correctly, again my example is http://localhost/twitch/
 
-#### Configure js/config.js
+#### Move api/v3/default-config.js to js/config.js and set correct
 
 * channel
 * clientId
