@@ -5,11 +5,14 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/site.css">
 		<script src="js/jquery-2.1.1.min.js"></script>
+        <script src="api/v3/default-config.js"></script>
 		<script src="api/v3/twitch-api.js"></script>
         <script src="api/v3/twitch-app.js"></script>
 		<script src="js/site.js"></script>
+        <script src="js/site-test.js"></script>
 	</head>
 	<body>
+        <audio id="audiotag1" src="mp3/My_Anaconda.wav" preload="auto"></audio>
 		<div id="main">
             <div id="followers">
                 <div class="headline">
@@ -18,11 +21,14 @@
                 <ul id="recentFollowers">
                 </ul>
             </div>
-            <div id="mostRecentFollower">
-                <div class="headline">
-                    <span>Most recent follower</span>
-                </div>
+            <div id="mostRecentFollowerPopUp">
+                <img src="img/NewFollower/Dancing_Banana.gif">
             </div>
 		</div>
+        <div id="test-menu">
+            <div id="test-mostRecentFollowerPopUp">
+                <input id="test-mostRecentFollowerPopUp-value" type="text" value="UsernameHere"><input id="test-mostRecentFollowerPopUp-button" type="button" value="Test most recent follower">
+            </div>
+        </div>
 	</body>
 </html>

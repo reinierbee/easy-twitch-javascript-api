@@ -8,28 +8,45 @@ body {
 	background-color:rgba(255,0,0,0);
     width: 1280px;
     height: 720px;
+    position:relative;
+    border: 1px dotted #f00;
 }
 
 #followers {
-    width: 320px;
+    width: 180px;
     background-color: #fcd987;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 .headline {
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    background-image: url('../img/header.png');
-    background-repeat: no-repeat;
-    background-color: #f27427;
-	color: #fcd987;
-	font-size: 32px;
-	line-height: 50px;
-	height: 50px;
-    padding-left: 10px;
+    background: url('../img/header.png') no-repeat #f27427 right -20px center;
+    color: #fcd987;
+	font-size: 20px;
+	line-height: 20px;
+	height: 20px;
+    padding-left: 5px;
 }
 #recentFollowers{
     margin:0;
     list-style-type: none;
-    padding-left: 10px;
+    padding-left: 12px;
 }
 #recentFollowers li{
-    margin: 5px 0;
+    font-size: 10px;
+    margin: 2px 0;
+}
+#mostRecentFollowerPopUp{
+    display: none;
+    height: 266px;
+    width: 249px;
+    position:absolute;
+    z-index:15;
+    top:50%;
+    left:50%;
+    margin:-133px 0 0 -125px;
+}
+#followerName{
+    text-align: center;
 }

@@ -1,0 +1,4 @@
+myConfig = {
+    "clientId":"",
+    "channel":""
+}

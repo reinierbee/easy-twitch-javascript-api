@@ -2,8 +2,6 @@
  * Created by reinier on 20-9-2014.
  */
 
-
-
 function TwitchApp () {
 
     var twitch = new TwitchApi();
@@ -14,17 +12,23 @@ function TwitchApp () {
     this.constructor = function () {
         config = {
             follower : {
+                loaded:false,
+                callback:popUpFollower,
                 poll:true,
                 pollTime:2000// MAX 100
             }
         };
-        twitch.setConfig("clientId","");
-        twitch.setConfig("channel","");
+        twitch.setConfig("clientId",myConfig.clientId);
+        twitch.setConfig("channel",myConfig.channel);
         twitch.initializeAuth();
     };
 
     this.constructor();
 
+
+    /*
+     *  Followers stuff
+     */
     this.pollFollowers = function () {
         setTimeout(function() {
             twitch.getChannelsFollows(app.getNewFollowers);
@@ -33,10 +37,18 @@ function TwitchApp () {
     };
 
     this.addNewFollower = function (newFollower) {
-        followers.push(newFollower)
+        followers.unshift(newFollower)
+        if(config.follower.loaded == true && config.follower.callback !== ''){
+            app.newFollowerAction(newFollower,config.follower.callback)
+        }
+    };
+
+    this.newFollowerAction = function (newFollower,callback) {
+        callback(newFollower)
     };
 
     this.getNewFollowers = function (newFollowList) {
+        newFollowList.follows = newFollowList.follows.reverse()
         for (key in newFollowList.follows) {
             entry = newFollowList.follows[key]
             if(followers.length === 0) {
@@ -49,6 +61,7 @@ function TwitchApp () {
                 console.log("Excisting entry _id: " + entry.user._id);
             }
         }
+        config.follower.loaded = true;
     };
 
     this.followerInList = function(followerId){
@@ -63,14 +76,9 @@ function TwitchApp () {
     this.getRecentFollowers = function () {
         return followers;
     };
-}
 
-function objToString (obj) {
-    var str = '';
-    for (var p in obj) {
-        if (obj.hasOwnProperty(p)) {
-            str += p + '::' + obj[p] + '\n';
-        }
+    this.playMusic = function(music){
+        $("#audio").remove()
+        $(document.body).append('<embed id="audio" src="'+ music +'" autostart="true" loop="false" width="2" height="0">');
     }
-    return str;
 }
