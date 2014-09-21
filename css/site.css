@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2014. Reinier Boon (ssjkrillen@hotmail.com)
+ *
+ * License
+ * ----
+ * Attribution-NonCommercial 3.0 Unported
+ * https://creativecommons.org/licenses/by-nc/3.0/
+ */
+
 body {
 	margin:0;
 	height:100%;
@@ -31,11 +40,17 @@ body {
 #recentFollowers{
     margin:0;
     list-style-type: none;
-    padding-left: 12px;
+    margin: 0;
+    padding: 0;
 }
 #recentFollowers li{
-    font-size: 10px;
-    margin: 2px 0;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    text-indent: 10px;
+}
+#recentFollowers li:nth-child(odd){
+    background-color:#f9aa5d;
 }
 #mostRecentFollowerPopUp{
     display: none;

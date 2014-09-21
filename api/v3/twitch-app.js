@@ -19,7 +19,6 @@ function TwitchApp () {
             follower : {
                 loaded:false,
                 callback:'',
-                poll:true,
                 pollTime:2000// MAX 100
             }
         };
@@ -69,7 +68,7 @@ function TwitchApp () {
                 console.log("New entry _id: " + newFollowList.follows[key].user._id);
                 app.addNewFollower(entry)
             } else {
-                console.log("Excisting entry _id: " + entry.user._id);
+                //console.log("Excisting entry _id: " + entry.user._id);
             }
         }
         config.follower.loaded = true;

@@ -12,7 +12,7 @@ twitch.pollFollowers();
 
 
 $(document).ready(function() {
-    twitch.setConfig("follower",{callback:popUpFollower})
+    twitch.setConfig("follower",{callback:popUpFollower,pollTime:2000,loaded:false})
     updateAppendFollowers();
 });
 
