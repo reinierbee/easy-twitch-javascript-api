@@ -16,4 +16,13 @@ $(document).ready(function() {
         }
         twitch.newFollowerAction(newFollower,popUpFollower)
     })
+
+    $("#test-mostRecentSubscriberPopUp-button").click(function(){
+        var newSubscriber = {
+            "user": {
+                "display_name":$("#test-mostRecentSubscriberPopUp-value").val()
+            }
+        }
+        twitch.newSubscriberAction(newSubscriber,popUpSubscriber)
+    })
 });

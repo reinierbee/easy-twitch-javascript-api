@@ -41,3 +41,14 @@ function popUpFollower(newFollower){
         .delay(8000)
         .fadeOut(600);
 }
+
+function popUpSubscriber(newSubscriber){
+    console.log("New subscriber pop-up for: " + newSubscriber.user.display_name)
+    $("#subscriberName").remove();
+    $("#mostRecentSubscriberPopUp").append( "<div id='subscriberName'>New subscriber: "+ newSubscriber.user.display_name +"</div>");
+    twitch.playMusic("mp3/Youre_Tearing_Me_Apart_Lisa.mp3")
+    $("#mostRecentSubscriberPopUp").delay()
+        .fadeIn(600)
+        .delay(8000)
+        .fadeOut(600);
+}

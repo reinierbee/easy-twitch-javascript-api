@@ -37,6 +37,15 @@ function TwitchApp () {
 
 
     /*
+     *  Subscriber stuff
+     */
+
+    this.newSubscriberAction = function (newSub,callback) {
+        callback(newSub)
+    };
+
+
+    /*
      *  Followers stuff
      */
     this.pollFollowers = function () {

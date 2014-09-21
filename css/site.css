@@ -52,15 +52,22 @@ body {
 #recentFollowers li:nth-child(odd){
     background-color:#f9aa5d;
 }
-#mostRecentFollowerPopUp{
+#mostRecentFollowerPopUp, #mostRecentSubscriberPopUp{
     display: none;
-    height: 266px;
-    width: 249px;
     position:absolute;
     z-index:15;
     top:50%;
     left:50%;
+}
+#mostRecentFollowerPopUp{
+    height: 266px;
+    width: 249px;
     margin:-133px 0 0 -125px;
+}
+#mostRecentSubscriberPopUp{
+    height: 305px;
+    width: 250px;
+    margin:-152px 0 0 -125px;
 }
 #followerName{
     text-align: center;
