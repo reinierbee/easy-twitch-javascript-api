@@ -31,10 +31,16 @@ function TwitchApp () {
     this.constructor();
 
     this.setConfig = function(key,value){
-        console.log("Setting config key: "+ key + " value: " + value)
-        config[key] = value
+        if(value !== null && typeof value === 'object') {
+            for(x in value) {
+                console.log("Setting config: ["+ key + "]["+ x +"] value: " + value[x])
+                config[key][x] = value[x]
+            }
+        } else {
+            console.log("Setting config: ["+ key + "] = " + value)
+            config[key] = value
+        }
     };
-
 
     /*
      *  Subscriber stuff
