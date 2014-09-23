@@ -13,8 +13,5 @@
             "homepage": "http://www.reinierboon.com",
             "role": "developer"
         }
-    ],
-    "archive": {
-        "exclude": ["*", "!api/*"]
-    }
+    ]
 }

@@ -12,6 +12,8 @@ Version
 Installation
 --------------
 
+Installation video https://www.youtube.com/watch?v=LG5VgMraan4&index=4&list=PLLIU8WUJfGcgl_w7E5FWrzVtugMQJJLTc
+
 ```sh
 git clone [git-repo-url] easy-twitch-api
 ```
