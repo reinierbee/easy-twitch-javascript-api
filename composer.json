@@ -1,0 +1,19 @@
+{
+    "name": "reinierbee/easy-twitch-api-javascript",
+    "type": "library",
+    "description": "Easy to use twitch api for javascript",
+    "keywords": ["api","javascript"],
+    "homepage": "https://github.com/reinierbee/easy-twitch-javascript-api",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Reinier Boon",
+            "email": "ssjkrillen@hotmail.com",
+            "homepage": "http://www.reinierboon.com",
+            "role": "0.2"
+        }
+    ],
+    "archive": {
+        "exclude": ["*", "!api/*"]
+    }
+}
