@@ -5,12 +5,13 @@
     "keywords": ["api","javascript"],
     "homepage": "https://github.com/reinierbee/easy-twitch-javascript-api",
     "license": "GPL-2.0",
+    "version": "0.2",
     "authors": [
         {
             "name": "Reinier Boon",
             "email": "ssjkrillen@hotmail.com",
             "homepage": "http://www.reinierboon.com",
-            "role": "0.2"
+            "role": "developer"
         }
     ],
     "archive": {
