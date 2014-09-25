@@ -42,14 +42,46 @@ function TwitchApi () {
         config.uriParam[key] = value
     };
 }
-
-TwitchApi.prototype.getChannelsFollows = function (callback) {
-    url = this.getConfig().baseUrl + '/channels/' + this.getConfig().channel + '/follows' + this.getUriParams();
+//channels
+TwitchApi.prototype.getChannels = function (callback,channel) {
+    channel = this.getChannelName(channel);
+    url = this.getConfig().baseUrl + '/channels/' + channel + this.getUriParams();
     this.restCall('GET',url,callback)
 };
 
-TwitchApi.prototype.getChannelsSubscriptions = function (callback){
-    url = this.getConfig().baseUrl + '/channels/' + this.getConfig().channel + '/subscriptions' + this.getUriParams();
+TwitchApi.prototype.getChannel = function (callback) {
+    url = this.getConfig().baseUrl + '/channel/' + this.getUriParams();
+    this.restCall('GET',url,callback)
+};
+
+TwitchApi.prototype.getChannelsEditors = function (callback,channel){
+    channel = this.getChannelName(channel);
+    url = this.getConfig().baseUrl + '/channels/' + channel + '/editors' + this.getUriParams();
+    this.restCall('GET',url,callback)
+};
+
+TwitchApi.prototype.getChannelsVideos = function (callback,channel){
+    channel = this.getChannelName(channel);
+    url = this.getConfig().baseUrl + '/channels/' + channel + '/videos' + this.getUriParams();
+    this.restCall('GET',url,callback)
+};
+
+TwitchApi.prototype.getChannelsFollows = function (callback,channel) {
+    channel = this.getChannelName(channel);
+    url = this.getConfig().baseUrl + '/channels/' + channel + '/follows' + this.getUriParams();
+    this.restCall('GET',url,callback)
+};
+
+TwitchApi.prototype.getChannelsTeams = function (callback,channel) {
+    channel = this.getChannelName(channel);
+    url = this.getConfig().baseUrl + '/channels/' + channel + '/teams' + this.getUriParams();
+    this.restCall('GET',url,callback)
+};
+
+//Subscriptions
+TwitchApi.prototype.getChannelsSubscriptions = function (callback,channel){
+    channel = this.getChannelName(channel);
+    url = this.getConfig().baseUrl + '/channels/' + channel + '/subscriptions' + this.getUriParams();
     this.restCall('GET',url,callback)
 };
 
@@ -66,6 +98,10 @@ TwitchApi.prototype.restCall = function (type,url,callback) {
         });
     });
 };
+
+TwitchApi.prototype.getChannelName = function (channel){
+    return typeof channel !== 'undefined' ? channel : this.getConfig().channel;
+}
 
 TwitchApi.prototype.initializeAuth = function (){
     if (this.urlParam('access_token')){
